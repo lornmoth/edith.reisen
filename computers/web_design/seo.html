@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search Engine Optimization: Best Practices</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+<meta name="title" content="Search Engine Optimization: Best Practices with Standards-Compliant HTML">
+<meta name="keyword" content="search engine optimization, seo, html, standards-compliant, best practice, comprehensive, header, meta tags, description, keywords, sitemap, canonical url, structured data, google search console, image attributes, alt, attributes, html5, primer">
+<meta name="description" content="Search engine optimization is the practice of adjusting your site’s code to make it readable and prominent to search engine algorithms, increasing its likelihood to appear
+This article is a comprehensive list of the HTML content parsed by search engine algorithms with best practices for readability and visibility. Excepting sitemaps and canonical urls covered in the Appendix (special use cases), this is the whole of SEO.">
+  <link rel="stylesheet" href="../../screen.css" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125826374-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-125826374-2');
+</script>
+
+</head>
+<body>
+<header>
+  <a href="../../index.html">edith.reisen</a>/<a href="../index.html">computers</a>/<a href="../index.html#web_design">web_design</a>
+</header>
+
+<div class="border">
+  <h1>
+    <a href="">Search Engine Optimization: Best Practices with Standards-Compliant HTML</a>
+  </h1>
+</div>
+
+<article>
+  <section id="toc">
+    <div class="border">
+    <h2>
+      <a href="#toc">Table of Contents</a>
+    </h2>
+
+    <ol>
+      <li><a href="#principles">Principles</a></li>
+      <li><a href="#meta">Meta Tags: Keywords, Title, Description</a></li>
+      <li><a href="#anchor">Anchor Tags</a></li>
+      <li><a href="#image">Image Attributes: Alt & Title</a></li>
+      <li><a href="#header">Header Tags</a></li>
+      <li><a href="#appendix">Appendix</a></li>
+      <ul>
+      <li><a href="#canonical">Canonical URL's</a></li>
+      <li><a href="#sitemap">Sitemaps: XML, HTML</a></li>
+      <li><a href="https://developers.google.com/search/docs/guides/intro-structured-data?visit_id=636834630421028789-1704645621&hl=en&rd=1">Structured Data</a></li>
+      <li><a href="#ranking">Referrals Effect on Page Ranking</a></li>
+      <li><a href="#console">Google Search Console</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#further_reading">Further Reading</a></li>
+    </ul>
+  </div>
+  </section>
+
+<hr>
+
+<section id="principles">
+  <div class="border"><h2>
+    <a href="#principles">Principles</a>
+  </h2>
+  <h3></h3>
+
+<p>
+Search engine optimization is the practice of adjusting your site’s code to increase readability and prominence for search engine algorithms, thus increasing its likelihood to appear higher in search listings.
+<p>
+
+<p>Well-structured semantic HTML and filled out and descriptive meta tags are essential for your site’s content to be readable and relevant to a search engine. Site popularity and content quality is also estimated by the number of external links and unique domains directed to your site, weighted by those domains’ own ranking. Attempting to trick or game the search engines with tag spam, etc. is counter-productive due to their <a href="https://support.google.com/webmasters/topic/6001971?hl=en">advanced counter measures.</a></p>
+
+  <p>This article is a comprehensive list of the HTML content parsed by search engine algorithms with best practices for readability and visibility. Excepting <a href="#sitemap">sitemaps</a> and <a href="#canonical">canonical urls</a> covered in <a href="#appendix">the Appendix</a> (special use cases), this is the whole of SEO.</p>
+
+</div>
+</section>
+
+
+<section id="meta">
+  <div class="border"><h2>
+    <a href="#meta">Meta Tags: Keywords, Title, Description</a>
+  </h2>
+  <p>These tags belong in the &lt;head&gt; at the beginning of an HTML document.
+    They are read by search engines to evaluate the content of the page and generate listings.</p>
+
+    <p>Attempts to <a href="https://archive.is/iZAdI">keyword stuff</a> the meta tags or body content will be caught
+      by the search engine's anti-spam algorithms and lower your search ranking. Focus on information-rich content
+      and the keywords will naturally result in the content.</p>
+
+
+  <h3>Keyword</h3>
+  <p><code>&lt;meta name="keyword" content="keyword, keyword keyword"&gt;</code></p>
+  <p>List the keywords present in the article. You should look through your content and identify a primary keyword, and then list secondary keywords. Keywords are separated by commas. Feature the primary keyword prominently in the title and description meta tags.</p>
+
+  <p>Ensure consistency with your keywords. Secondary keywords can be included but there should be one primary keyword that is present across the three meta tags.</p>
+
+<p><i>E.g. if the primary keyword is UX Design, don’t alternate between "UX Design," "User Interface," and "web design" in the title and description and tags.</i></p>
+
+  <h3>Title</h3>
+  <p><code>&lt;meta name="title" content="Title of Article"&gt;</code></p>
+  <p>One line, under 60 characters. Clear and descriptive, containing your primary keyword</p>
+
+<p><i>Note: It's bad practice to prepend anything to the title, such as the name of your domain, e.g. "Edith: Search Engine Optimization," because it makes pages hard to distinguish for users with many tabs, whose browsers might truncate the title and lower the character cap.</i></p>
+
+<h3>Description</h3>
+ <p><code>&lt;meta name="description" content="Description of article"&gt;</code></p>
+ <p>One paragraph description, attempt to include keywords.</p>
+
+<p>
+Detailed analysis:
+https://blog.spotibo.com/meta-description/</p>
+
+</div>
+</section>
+
+
+<section id="anchor">
+  <div class="border"><h2>
+    <a href="#anchor">Anchor</a>
+  </h2>
+  <p>Anchor tags are what form hyperlinks in HTML.</p>
+  <p><code>&lt;a href="https://www.url.com">Example Hyperlink&lt;/a&gt;</code>
+  <p>It's important the words that are turned into a hyperlink are descriptive
+    of the content they are linking to, especially for raising your Page Rank
+    for external links directed to your site or internal links within your site.</p>
+    <p>e.g. <a href="#">This</a> is a bad practice hyperlink. <p>This is a <a href="#">good practice hyperlink.</a></p>
+</div>
+</section>
+
+
+<section id="image">
+  <div class="border"><h2>
+    <a href="#image">Images: Alt Attribute, Filename</a>
+  </h2>
+  <p>When a search engine displays image results, they don't actually parse the
+    visual content of the image. Instead they look at the images descriptive tags.
+    If you want an image on your site to appear on image search results, you will
+    need to include textual descriptions for the search engine's algorithms to read.</p>
+  <h3>Alt</h3>
+  <p><code>&lt;img src="dog.jgp" alt="Photograph of a Golden Retriever"&gt;</code></p>
+  <p>The alt attribute defines an alternative text description of an image in the case that it cannot be loaded by a browser (e.g. non graphical browser, screen reader, due to a missing file or images turned off).</p>
+  <p>An alt description should always be defined as per W3C standards to maintain accessibility, allowing the content of the website to be universally retained. </p>
+  <p>It is also, however, important as parsable information for a search engine. A web crawler will ignore images without alt text to reference. The more accurate and key-word containing the image, the more likely it is to appear highly in search results.</p>
+
+  <h3>Filename</h3>
+  <p>Search engines will also analyze the filename of the image for information.
+    Using a generated filename like "1545066239.jpg" or "Screen Shot 2018-06-11 at 10.56.51 PM" will reveal less usable information than a descriptive one like golden_retriever.jpg.</p>
+</div>
+</section>
+
+
+<section id="header">
+  <div class="border"><h2>
+    <a href="#header">Header Tags</a>
+  </h2>
+  <p>Search engines will also parse header tags (<code>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;...</code>) for content and for generating search results.
+  It's important you make proper standards-compliant use of them.</p>
+</div>
+</section>
+
+
+<hr>
+
+<section id="appendix">
+  <div class="border"><h2>
+    <a href="#appendix">Appendix</a>
+  </h2>
+  <ul class="list">
+    <li><a href="#canonical">Canonical URL's</a></li>
+    <li><a href="#sitemap">Sitemaps: XML, HTML</a></li>
+    <li><a href="#ranking">Referrals Effect on Page Ranking</a></li>
+
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#further_reading">Further Reading</a></li>
+  </ul>
+</div>
+</section>
+
+
+<section id="canonical">
+  <div class="border"><h2>
+    <a href="#canonical">Canonical URL's</a>
+  </h2>
+</div>
+</section>
+
+
+<section id="sitemap">
+  <div class="border"><h2>
+    <a href="#sitemap">Sitemaps: XML, HTML</a>
+  </h2>
+</div>
+</section>
+
+
+<section id="ranking">
+  <div class="border"><h2>
+    <a href="#ranking">Referrals Effect on Page Ranking</a>
+  </h2>
+</div>
+</section>
+
+
+
+<section id="tools">
+  <div class="border"><h2>
+    <a href="#tools">Tools</a>
+  </h2>
+  <p><a href="https://support.google.com/webmasters/answer/6258314">Google Search Console</a></p>
+</div>
+</section>
+
+
+<section id="further_reading">
+  <div class="border"><h2>
+    <a href="#further_reading">Further Reading</a>
+  </h2>
+</div>
+</section>
+
+
+
+<hr>
+<footer>
+<p>Last Updated: 1/19</p>
+</footer>
+<subfooter><a href="">↑ Return ↑</a></subfooter>
+</article>
+</body>
+</html>

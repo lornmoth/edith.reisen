@@ -1,0 +1,17 @@
+Supermemo
+Anki + IR Addon
+e-macs +
+Polar Bookshelf
+
+
+https://help.supermemo.org/wiki/Incremental_learning
+
+http://www.indiana.edu/%7Epcl/rgoldsto/courses/dunloskyimprovinglearning.pdf
+
+https://www.supermemo.com/help/read.htm
+
+https://github.com/burtonator/polar-bookshelf
+
+
+http://www.gwern.net/Spaced-repetition
+

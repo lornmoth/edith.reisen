@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Secure Web Browsers</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+<meta name="title" content="Secure Web Browsers">
+<meta name="keyword" content="secure web browser, private, unsolicited requests, hosts lists, extensions, accessible, bloat, optimized, cli, brave, otter, midori, ungoogled-chromium, chromium, vimb, vim-like, konqueror, qutebrowser, lynx, elinks, surf, w3m, ghostery compromised, adlock, ublock, umatrix, decentraleyes, smarthttps, best, recommended, guide, web browser">
+<meta name="description" content="A good web browser should be secure, lightweight and standards compatibile. It shouldn't perform unsolicited requests home and should strive to be optimized.">
+  <link rel="stylesheet" href="../../screen.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125826374-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-125826374-2');
+</script>
+</head>
+<body>
+
+  <header>
+  <a href="../../index.html">edith.reisen</a>/<a href="../index.html">computers</a>/<a href="../index.html#security">security</a>
+  </header>
+
+  <div class="border">
+    <h1>
+      <a href="">Secure Web Browsers</a>
+    </h1>
+  </div>
+
+<article>
+  <section id="toc">
+    <div class="border">
+    <h2>
+      <a href="#toc">Table of Contents</a>
+    </h2>
+
+    <ol>
+      <li><a href="#principles">Principles</a></li>
+      <li><a href="#non_extensible">Secure, Non-Extensible Browsers</a></li>
+      <li><a href="#cli">CLI-Based Browsers</a></li>
+      <li><a href="#chromium">Chromium Based Browsers</a></li>
+      <li><a href="#ff">Firefox Based Browsers</a></li>
+      <li><a href="#extensions_security">Browser Extensions: Security</a></li>
+      <li><a href="#extensions_convenience">Browser Extensions: Convenience</a></li>
+      <li><a href="#practices">Best Practices</a></li>
+      <li><a href="#online_privacy">Online Privacy</a></li>
+      <li><a href="#appendix">Appendix</a>
+      <ol>
+        <li><a href="#false_extensions">False Privacy Extensions: Ghostery, AdBlock, NoScript</a></li>
+        <li><a href="#system_player">Embedded System Player</a></li>
+        <li><a href="#javascript">Javascript Insecurity</a></li>
+        <li><a href="#cloudfare">Cloudfare DNS Insecurity</a></li>
+        <li><a href="#plugin">Plugin Insecurity: Adoble Flash, Microsoft Silverlight</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#further_reading">Further Reading</a></li>
+      </ol>
+    </ul>
+    </li>
+  </div>
+  </section>
+
+<hr>
+
+<section id="principles">
+  <div class="border">
+  <h2>
+    <a href="#principles">Principles</a>
+  </h2>
+  <p>A good web browser should be secure, lightweight and standards compatible.
+  Extensibility is relevant only as far as it provides <a
+  href="#extensions_security">missing security</a>. <a
+  href="https://html5accessibility.com/">Accessibility support</a> is not
+  considered relevant here.</p>
+
+  <h3>Secure</h3>
+  <p>The popular modern web browsers (Chrome, Edge, Firefox, Internet Explorer, Opera & Safari) are highly insecure, performing unsolicited requests
+  back to their database (<a href="https://archive.is/CzzfO"><q>phoning home</q></a>), tracking user data, containing
+  backdoors in the code for government spying and generally
+  being in extreme violation of their users' privacy. This is true too of most browsers that
+  market themselves as privacy or security focused, such as Brave Browser<a href="https://web.archive.org/web/20181012155256/https://spyware.neocities.org/articles/brave.html">*</a> and Vivaldi<a href="https://web.archive.org/web/20181012155605/https://spyware.neocities.org/articles/vivaldi.html">*</a>. Any
+  browser that is not Free & Open Source such that the code can be audited by independent third-parties, or one that phones home or performs automatic security update is not secure.</p>
+
+  <p>Beyond the browser itself, there are many exploits present on the web used commonly online to track users, primarily through loaded scripts and plug-ins -
+  e.g. Javascript, Adobe Flash, Microsoft Silverlight - and loading <a href="http://archive.is/MWuFB">third-party cookies</a>.
+  Any browser that features support for these modern technologies without functionality to toggle or control
+  them is not secure.</p>
+
+  <h3>Lightweight</h3>
+  <p>The popular modern web browsers are heavily bloated and poorly optimized, suffering from insecure
+    feature creep<a href="https://archive.is/Qtm5P">*</a> and obligation to support the poorly written, non-standard HTML/CSS hackjobs prevalent on the web,
+    resulting in extreme resource usage.  Poorly written browser source code also makes exploits more likely
+      and backdoors to be hidden "in plain sight" more easily. Contributing to the resource usage are the bloated (and insecure) Javascript frameworks that the bad practice modern web developers rely on heavily.</p>
+    <p>Rather than contribute to the <a href="https://suckless.org/sucks/web/">dismal experience of modern web surfing</a>, a good web browser should be clean, simple and optimized. Basic expected functionality beyond standards compliance
+    is browsing history, bookmarking and tabs.</p>
+
+  <h3>Standard Compatibility</h3>
+  <p>HTML5 is a <a href="https://html.spec.whatwg.org/multipage/">Living Standard</a> and expansions to the codebase are rolled out
+  regularly. As a new standard reaches support by the six major browsers
+  (Chrome, Edge, Firefox, Internet Explorer, Opera & Safari) it begins to be
+  adopted across the web, and a browser that does not keep up will find some
+  websites not rendered as intended. Even if one relies primarily on a simple browser with basic feature functionality as their daily driver,
+  keeping a browser that emphasizes standards compliance on hand is necessary to browse much of the modern web.
+
+  <h3>A Note on Operating Systems</h3>
+  <p>This article assumes the reader is using a GNU/Linux or *BSD Operating System. Many of these applications will not be runnable on Windows.</p>
+  <!--<p><i>For Secure Operating System recommendations, see: <a href="security/openbsd.html">OpenBSD: Secure by Default</a>, <a href="user_agency/obsd_slackware.html">Installing A *NIX Operating System: OpenBSD, Slackware</a></i></p>
+</p>-->
+
+</div>
+</section>
+
+
+
+<section id="non_extensible">
+  <div class="border">
+  <h2>
+    <a href="#toc">Non-Extensible, Secure Browsers</a>
+  </h2>
+
+  <h3></h3>
+  <p>These browsers are simple and effective, FOSS and do not carry any embedded spyware. However, they do not have support for secure extensions that can block malicious cookies, Javascript and user agent tracking from the websites you visit. These are recommended for casual use only.</p>
+  <dl>
+    <dt><a href="https://otter-browser.org/">Otter Browser</a></dt>
+    <dd>Otter Browser is a recreation of Opera 12.x's user interface with relative standards-compliance. It makes no unsolicited requests<a href="https://web.archive.org/web/20180721175111/https://spyware.neocities.org/articles/otter.html">*</a>.</dd>
+    <dt><a href="https://github.com/midori-browser/core">Midori</a></dt>
+    <dd>Midori is a lightweight browser built on WebKit GTK+ framework with an emphasis on speed and supporting modern web technology.</dd>
+    <dt><a href="https://konqueror.org/">Konqueror</a></dt>
+    <dd>File Manage and Web Browser for the KDE (Kool Desktop Environment). Standards-compliant. Low resource footprint in KDE due to most of the needed resources already being loaded by the DE.</dd>
+    <dt><a href="https://www.qutebrowser.org/">Qutebrowser</a></dt>
+    <dd>Qutebrowser is a lightweight, minimalist vim-like browser built on Python and the Qt framework. It does not make unsolicited requests<a href="https://web.archive.org/web/20180721175110/https://spyware.neocities.org/articles/qutebrowser.html">*</a> and Javascript can be disabled on a per-domain basis in the <a href="http://qutebrowser.org/doc/help/configuring.html">config files</a>.</dd>
+    <dt><a href="https://fanglingsu.github.io/vimb/">Vimb</a></dt>
+    <dd>Vimb is a lightweight, minimalist vim-like browser built on WebKit GTK+ framework.</dd>
+    <dt><a href="https://surf.suckless.org">Surf</a></dt>
+    <dd>Surf is a very lightweight, tab-less browser built on WebKit GTK+ framework following the <a href="https://suckless.org/philosophy/">suckless philosophy.</a></dd>
+  </dl>
+</div>
+</section>
+
+
+
+<section id="cli">
+  <div class="border">
+  <h2>
+    <a href="#toc">CLI-Based Browsers</a>
+  </h2>
+  <p>These text-based browsers load directly in the terminal. They are FOSS and do not any perform unsolicited requests. They are extremely light-weight and can be used effectively to browse the web. However, they do not have support for <a href"#javascript">Javascript</a> and <a href="#flash">Adobe Flash</a>, breaking many modern websites, and besides w3m, do not have inline image support. Their lack of support for scripts, plug-ins, graphic images and cookies — all of which are common tracking vectors — make these highly secure by default.</p>
+  <dl>
+    <dt><a href="https://lynx.invisible-island.net/">Lynx</a></dt>
+      <dd>Support for tables, frames and color. SSL support. Partial CSS and cookies support. Includes browsing history. Lightweight relative to other CLI browsers and highly configurable.</dd>
+    <dt><a href="http://w3m.sourceforge.net/">w3m</a></dt>
+      <dd>Support for inline images, tables, frames and color.</dd>
+    <dt><a href="http://elinks.or.cz/">elinks</a></dt>
+      <dd>Support for tables, frames and color. CSS and partial Javascript support. Includes hinted links, tabbed browsing, on-board download manager, bookmarks and history. Slow relative to other CLI-based browsers. However, it is no longer maintained and does not verify SSL authentication, so it was <a href="https://marc.info/?l=openbsd-ports-cvs&m=148977271815658&w=2">removed from the OpenBSD ports tree</a> in 2017.</dd>
+  </dl>
+  <p><i>Note: These browsers are still vulnerable to the same vulnerabilities as <a href="https://www.cvedetails.com/vulnerability-list/vendor_id-72/product_id-332/GNU-Wget.html">wget</a> and <a href="https://www.cvedetails.com/vulnerability-list/vendor_id-2852/Curl.html">curl</a></i></p>
+</div>
+</section>
+
+
+
+<section id="chromium">
+  <div class="border">
+  <h2>
+    <a href="#chromium">Chromium Based Browsers</a>
+  </h2>
+  <h3>Spyware:</h3>
+  <p>The following Chromium-based browsers perform unsolicited requests home, track user data, perform automatic updates, track location and/or record voice. They are not recommended for use.</p>
+  <ul>
+    <li>Google Chrome<a href="https://web.archive.org/web/20181012155044/https://spyware.neocities.org/articles/chrome.html">*</a></li>
+    <li>Opera<a href="https://web.archive.org/web/20181012155303/https://spyware.neocities.org/articles/opera.html">*</a></li>
+    <li>Vivaldi<a href="https://web.archive.org/web/20181012155605/https://spyware.neocities.org/articles/vivaldi.html">*</a></li>
+    <li>Brave Browser<a href="https://web.archive.org/web/20181012155256/https://spyware.neocities.org/articles/brave.html">*</a></li>
+  </ul>
+
+  <h3>Secure:</h3>
+  <p>The following Chromium-based browsers are FOSS and do not perform unsolicited requests or track users.
+  <dl>
+    <dt><a href="https://iridiumbrowser.de/">Iridium</a></dt>
+    <dd>Iridium is a modified and stripped-down Chromium made to be secure. It makes no unsolicited requests<a href="https://github.com/iridium-browser/tracker/wiki/Differences-between-Iridium-and-Chromium">*</a>. To be fully secure, <a href="https://github.com/iridium-browser/tracker/wiki/Differences-between-Iridium-and-Chromium#google-safe-browsing">disable Google Safe Browsing</a> after install. Extensions can be downloaded directly from the Chrome Webstore.</dd>
+    <dt><a href="https://github.com/Eloston/ungoogled-chromium#downloads">Ungoogled-Chromium</a>
+    <dd>Ungoogled-chromium extends Iridium slightly further, fully secure by default and does not draw attention to itself by setting its user agent to Chromium (Iridium advertises itself as Iridium). Extensions need to be installed by <a href="https://ungoogled-software.github.io/ungoogled-chromium-wiki/faq#can-i-install-extensions-from-the-chrome-webstore">manually downloading and installing the CRX file from the webstore</a>.</dd>
+</dl>
+</div>
+</section>
+
+
+
+<section id="ff">
+  <div class="border">
+  <h2>
+    <a href="#toc">Firefox Based Browsers</a>
+  </h2>
+  <h3>Spyware:</h3>
+  <p>The following Firefox-based browsers perform unsolicited requests home, track user data, perform automatic updates, track location and/or record voice. They are not recommended for use.</p>
+
+  <ul>
+    <li>Mozilla Firefox<a href="https://web.archive.org/web/20180909183545/https://spyware.neocities.org/articles/firefox.html">*</a></li>
+    <li>Waterfox<a href="https://web.archive.org/web/20180909183536/https://spyware.neocities.org/articles/waterfox.html">*</a></li>
+    <li>Pale Moon<a href="https://web.archive.org/web/20180721175110/https://spyware.neocities.org/articles/palemoon.html">*</a></li>
+    <li>Cliqz<a href="http://archive.is/y8u52">*</a></li>
+
+  </ul>
+  <h3>Secure:</h3>
+  <p>The following Firefox-based browsers are FOSS and do not perform unsolicited requests or track users.
+  <dl>
+    <dt><a href="https://github.com/pyllyukko/user.js#known-problems-and-limitations">Hardened Firefox</a></dt>
+      <dd>Mozilla Firefox with full hardening in the user settings can be theoretically made to remove its embedded spyware, and go further by securing against known security vulnerabilities. Pre-configured user settings files can be imported, e.g. <a href="https://github.com/pyllyukko/user.js">full</a> and <a href="https://github.com/pyllyukko/user.js/tree/relaxed">relaxed</a>.
+    <dt><a href="">GNU IceCat</a></dt>
+      <dd>GNU IceCat is a Firefox fork from the <a href="">Free Software Foundation</a>. The older versions retain some of the spyware found in Firefox, but this appears to have been removed in Update 60.2. Javascript support is limited to secure scripts licensed under GPLv3 via LibreJS by default, but can be turned off.</dd>
+    <!--<dt><a href="https://github.com/browsh-org/browsh">Browsh</a></dt>
+      <dd>Browsh is a text-based browser running headless firefox with support for modern web technology (HTML5, CSS3, JS & video) and visual media rendered in colored ASCII. Intended to be used via <a href="../user_agency/ssh.html">ssh'ing into remote server</a> when on low bandwidth connections.</dd>-->
+  </dl>
+</div>
+</section>
+
+
+
+<section id="extensions_security">
+  <div class="border">
+  <h2>
+    <a href="#toc">Browser Extensions: Security</a>
+  </h2>
+  <p>These extensions are only available for Chromium & Firefox based Browsers. They should all be installed and setup for secure web browsing.</p>
+  <dl>
+    <dt id="umatrix"><a href="https://github.com/gorhill/uMatrix">uMatrix</a></dt>
+      <dd>Allows control over first party requests (divided into: cookies, scripts, XHR, frames, CSS, image, media, other). Blocks third party requests which is what is most often used for spying. Blocks ads and pop-ups. More powerful, effective, configurable and lightweight than any combination of ad-blocker and privacy control. Add <code>* * script block</code> to the rules list to block scripts by default. Review <a href="https://archive.is/4ySPK">setup guide</a>.</dd>
+      <p><i>Note: Despite being commonly recommended as a secure scriptblocking extension, NoScript is <a href="https://archive.is/Ld2Oa">malicious and harmful</a>. Any site that recommends it should not be trusted.</i></p>
+      <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/umatrix/ogfcmafjalglgifnmanfmnieipoejdcf">CHR</a>; CRX; <a href="https://addons.mozilla.org/en-US/firefox/addon/umatrix/">FF</a>.</p>
+
+    <dt><a href="https://github.com/ilGur1132/Smart-HTTPS">Smart HTTPS</a></dt>
+      <dd>Assumes all websites support SSL and attempts connection through it. Falls back to HTTP if SSL is not supported. Disable automatic whitelisting to prevent false negatives caused by network error being saved to user database.</dd>
+      <p><i>Note: More effective than the commonly recommended HTTPS Everywhere, which reads from a global whitelist rather than testing every site for SSL.</i></p>
+      <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/smart-https/cmleijjdpceldbelpnpkddofmcmcaknm">CHR</a>; CRX; <a href="https://addons.mozilla.org/en-US/firefox/addon/smart-https-revived/">FF</a>.</p>
+
+    <dt><a href="https://git.synz.io/Synzvato/decentraleyes">Decentraleyes</a></dt>
+      <dd>Stores a local copy of vulnerable scripts (jQuery, Google scripts, etc.) that are commonly required by websites to work and have those be accessed instead to prevent sending out information.</dd>
+      <dd><i>Note: To prevent conflicts, Decentraleyes must be installed after Smart HTTPS and the following rules should be added to the uMatrix config:</i></dd>
+      <p><code>
+        * ajax.aspnetcdn.com script allow
+  <br>  * ajax.googleapis.com script allow
+  <br>  * ajax.microsoft.com script allow
+  <br>  * ajax.proxy.ustclug.org script allow
+  <br>  * cdn.jsdelivr.net script allow
+  <br>  * cdnjs.cloudflare.com script allow
+  <br>  * code.jquery.com script allow
+  <br>  * libs.baidu.com script allow
+</code></p>
+      <p class="dl">DL: <a href"https://chrome.google.com/webstore/detail/decentraleyes/ldpochfccmkkmhdbclfhpagapcfdljkj?hl=en-US">CHR</a>; CRX; <a href="https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/">FF</a>.</p>
+
+      <dt><a href="">Multi-Account Containers</a>
+      <dd>Allows you to compartmentalize session browsing history, cookies and saved passwords to employ profiles. However, due to the ease of browser fingerprinting, it's not nearly as effective as <a href="#practices">multi-browser compartmentalization</a>.</dd>
+      <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/sessionbox-free-multi-log/megbklhjamjbcafknkgmokldgolkdfig">CHR</a>; CRX; <a href="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/"FF</a>.</p>
+    </dl>
+  </div>
+  </section>
+
+
+
+<section id="extensions_convenience">
+  <div class="border">
+  <h2>
+    <a href="#toc">Browser Extensions: Convenience</a>
+  </h2>
+  <p>These extensions are only available for Chromium & Firefox based web browsers. They are not necessary but make browsing more efficient or comfortable.</p>
+
+  <dl>
+  <dt><a href="https://github.com/philc/vimium">Vimium</a>/<a href="https://github.com/tridactyl/tridactyl">Tridactyl</a></dt>
+  <dd>Powerful vim-like extensions that allow for true mouseless browsing via hint mode (every link on the page is given a hotkey), keyboard page navigation and console control panel. Resource intensive.</dd>
+    <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb">CHR</a>; CRX; <a href="https://github.com/tridactyl/tridactyl">FF.</p>
+
+  <dt><a href="https://github.com/lusakasa/saka-key">Saka Key</a></dt>
+    <dd>Simplified, lightweight extension as an alternative to the above. Allows keyboard shorcut modification and provides hint mode for mouseless link navigation.</dd>
+    <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/saka-key/hhhpdkekipnbloiiiiaokibebpdpakdp">CHR</a>; CRX; <a href="https://addons.mozilla.org/en-US/firefox/addon/saka-key/">FF</a>.</p>
+
+  <dt><a href="https://github.com/Morikko/sync-tab-groups">Sync Tab Groups</a></dt>
+    <dd>Allows tab groups to be saved as background sessions so they can be closed and reopened to prevent background tabs from taking up memory.</dd>
+    <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/sync-tab-groups/gbkddinkjahdfhaiifploahejhmaaeoa">CHR</a>; CRX; <a href="https://addons.mozilla.org/en-US/firefox/addon/sync-tab-groups/">FF</a>.</p>
+<!--
+  <dt><a href="https://addons.mozilla.org/en-US/firefox/addon/amp2html/">Redirect AMP to HTML</a></dt>
+  <dd>Redirect search engine's generated <a href="https://danielmiessler.com/blog/google-amp-not-good-thing/">Accelerated Mobile Pages</a> to the actual HTML site.</dd>
+    <p class="dl">DL: <a href="">CHR</a>; CRX; <a href="https://addons.mozilla.org/en-US/firefox/addon/amp2html/">FF</a>.</p>
+-->
+  <dt><a href="https://github.com/PaeP3nguin/LinkBot">LinkBot</a></dt>
+    <dd>Makes any non-clickable hyperlink clickable (for example, links without http:// typed, or emails).</dd>
+    <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/linkbot/chnfcfcbnhloogdohcmjogkklghefofm">CHR</a>; CRX; <a href"https://addons.mozilla.org/en-US/firefox/addon/linkificator/">FF</a>.</p>
+
+  <dt><a href="https://github.com/rahiel/archiveror">Archiveror</a></dt>
+    <dd>Quickly archive currently selected page on archive.is, web.archive.org, perma.cc or webcitation.org with toolbar icon or keyboard shortcut (default: Alt+Shift+Y).</dd>
+    <!--<p><i>See: <a href="../principles/archive_everything.html">Archive Everything</a>.</i></p>-->
+    <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/archiveror/cpjdnekhgjdecpmjglkcegchhiijadpb">CHR</a>; CRX; <a href="https://addons.mozilla.org/en-US/firefox/addon/archiveror/">FF</a>.</p>
+
+  <dt><a href="https://github.com/openstyles/stylus-">Stylus</a></dt>
+    <dd>Allows for custom per-domain CSS. A fork of an older Stylish version before it became spyware<a href="https://archive.is/LTq44">*</a>.</dd>
+    <p class="dl">DL: <a href="https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne">CHR</a>; CRX; <a href="https://addons.mozilla.org/firefox/addon/styl-us/">FF</a>.</p>
+  </dl>
+</div>
+</section>
+
+
+
+<section id="practices">
+  <div class="border">
+  <h2>
+    <a href="#practices">Best Practices</a>
+  </h2>
+  <h3>Compartmentalization</h3>
+  <p>Use two browsers, one for secure, private browsing as your main browser, and a secondary browser for when you need to access insecure sites that require scripts or cookies to work, or are connected to identifying information (e.g. logging into a social network).</p>
+
+  <h3>Cookies</h3>
+  <p>Disable third-party cookies. Only accept first-party cookies from whitelisted sites. Clear cookies on browser close. To make logging back into sites less troublesome, use a password manager.</p>
+
+  <h3>Scripts</h3>
+  <p>Disable scripts by default, e.g. using <a href="#extensions_security">uMatrix</a>. Only turn them on when a site is broken without it, and only allow first-party scripts.</p>
+  <p><i>Note: Any site this happens on is directly contradicting W3C standards: <a href="https://www.w3.org/wiki/The_principles_of_unobtrusive_JavaScript">Javascript should only be progressive enhancement</a></i></p>
+
+  <h3>Proxy</h3>
+  <p>Hide your IP by routing web traffic through a VPN. Use a TOR proxy for extra security.</p>
+
+<!--
+  <h3>User Agent Spoofing</h3>
+  <p>Browsers fingrepri</p>-->
+
+  <h3>Hosts List</h3>
+  <p>Maintain a Hosts list file in your system to blacklist unwanted connections.</p>
+  <p><i>See: <a href="https://someonewhocares.org/hosts/">Adding a Hosts List</a></i></p>
+
+  <h3>Privacy Respecting Search Engine</h3>
+  <p>Replace your default browser search engine with one that respects privacy<a href="https://archive.is/A3beV">*</a>: <a href="https://searx.me/">Searx.me</a>, <a href="https://www.startpage.com/">Startpage</a> or <a href="https://ixquick.com/">Ixquick</a>.</p>
+  <p><i>Note: Despite masquerading as a secure alternative, DuckDuckGo is compromised<a href="https://archive.is/A3beV">*</a><a href="https://archive.is/SMtj8">*</a><a href="https://archive.is/qntuk">*</a> and any site that recommends it should not be trusted.</i></p>
+
+</div>
+</section>
+
+<section id="online_privacy">
+  <div class="border">
+  <h2>
+    <a href="#online_privacy">Online Privacy</a>
+  </h2>
+    <p>The only way to achieve true privacy is to not use a computer. The next best thing you can do is compartimentalization—one browser for Facebook, one browser for Google, etc.—as it is impossible to avoid brower fingerprinting. However, if you are diligent about keeping your online identities and habits separated, then the threat involved in being compromised is mitigated.</p>
+    <p>To achieve online privacy, it is recommended you install multiple different secure browsers on this page, with any necessary web security extensions, and use each one for a separate task or identity.</p>
+</div>
+</section>
+
+<hr>
+<section id="appendix">
+  <div class="border">
+  <h2>
+    <a href="#appendix">Appendix</a>
+  </h2>
+  <ol>
+    <li><a href="#false_extensions">False Privacy Extensions: Ghostery, AdBlock, NoScript</a></li>
+  <li><a href="#system_player">Embedded System Player</a></li>
+  <li><a href="#javascript">Javascript Insecurity</a></li>
+  <li><a href="#cloudfare">Cloudfare DNS Insecurity</a></li>
+  <li><a href="#plugin">Plugin Insecurity: Adoble Flash, Microsoft Silverlight</a></li>
+  <li><a href="#tools">Tools</a></li>
+  <li><a href="#further_reading">Further Reading</a></li>
+
+  </ol>
+</div>
+</section>
+
+<section id="false_extensions">
+  <div class="border">
+  <h2>
+    <a href="#false_extensions">False Privacy Extensions: Ghostery, AdBlock, NoScript</a>
+  </h2>
+  <p>The following extensions falsely advertise themselves as privacy focused. They are not recommended for us and any site that recommends them should not be trusted.
+  <h3 id="ghostery">Ghostery</h3>
+  <ul class="list">
+    <li>Ghostery was built and run by an <a href="http://archive.is/TwRGN">advertising company</a> that <a href="http://archive.is/7m0OO">changed its name to capitalize on the privacy movement,</a> before being <a href="http://archive.is/4uJYp">sold to Cliqz in 2017,</a> a Mozilla-backed company behind the controversial<a href="http://archive.is/L9wAo">*</a><a href="http://archive.is/tml0e">*</a>, <a href="http://archive.is/EWYAS">false privacy, data-collecting browser of the same name.</a></li>
+    <li>Ghostery <a href="http://archive.is/Hv8rY">packages and sells user collected data</a> to its advertising clients.</li>
+    <li>Ghostery works <a href="http://archive.is/ACtGG">directly with the Digital Advertising Alliance,</a> to help power <a href="http://archive.is/JJH1y">AdChoices.</a></li>
+    <li>As of version 8.2, Ghostery has integrated <a href="http://archive.is/CIn5O">its own web-embedded advertisements</a> into its extension.</li>
+    <li>Ghostery remained closed-source until the 2017 Cliqz purchase, however it is now open-source under the MPL v2</li>
+  </ul>
+
+<p>The secure tracker blocking alternative is <a href="https://www.eff.org/privacybadger">Privacy Badger,</a> developed by the venerable non-profit <a href="https://www.eff.org">Electronic Frontier Foundation.</a><p>
+
+<h3 id="adblock">AdBlock, Adguard, AdBlock Plus</h3>
+<ul class="list">
+<li>Participates in the <a href="https://acceptableads.com">Acceptable Ads Program,</a> in which <a href="http://archive.is/KB7Lw">deals are made with advertisers to be whitelisted</a> in return for a <a href="http://archive.is/v9c68">share of the revenue.</a></li>
+</ul>
+
+<p>The <a href="https://github.com/fivefilters/block-ads/wiki/There-are-no-acceptable-ads">ethical</a> (and more optimized) ad-blocking alternative is <a href="https://github.com/gorhill/uBlock/">uBlock Origin,</a> managed by the same developer as the more powerful, more light-weight and more comprehensive <a href="#umatrix">uMatrix.</a>
+
+<h3 id="noscript">NoScript</h3>
+<ul class="list">
+  <li>In 2009, <a href="https://archive.is/dQGJO">the NoScript developer manipulated users' adblocking whitelist to allow Google AdSense advertisements on the author's own website.</a> The author <a href="https://archive.is/ke8BB">responded with an apology.</a></li>
+  <li>In 2016, NoScript was <a href="https://archive.is/Ld2Oa#selection-163.0-188.0">caught linking malware in the advertisement-filled changelog page,</a> which is opened by default any time an update is pushed.</li>
+  <p>The secure script-blocking alternative is ScriptSafe. However, it's unnecesarily to install a dedicated extension when you can accomplish scriptblocking with the correct settings in <a href="https://github.com/gorhill/uBlock/wiki/Blocking-mode:-medium-mode">uBlock Origin</a> or <a href="#umatrix">uMatrix.</a>
+</div>
+</section>
+
+<section id="system_player">
+  <div class="border">
+  <h2>
+    <a href="#system_player">Embedded System Media Player</a>
+  </h2>
+  <p>To be written.</p>
+</section>
+</div>
+
+
+<section id="javascript">
+  <div class="border">
+  <h2>
+    <a href="#javascript">Javascript Insecurity</a>
+  </h2>
+    <p><a href="https://archive.is/pO88S">Thou shalt not depend on me: analysing the use of outdated JavaScript libraries on the web</a> Lauinger et al., NDSS 2017</p>
+    <blockquote>In this paper, we conduct the first comprehensive study of client-side JavaScript library usage and the resulting security implications across the Web. Using data from over 133K websites, we show that 37% of them include at least one library with a known vulnerability; the time lag behind the newest release of a library is measured in the order of years.</blockquote>
+    <blockquote>Unfortunately, security does not appear to be a priority in the JavaScript library ecosystem. Popular vulnerability databases contain nearly no entries regarding JavaScript libraries. During this entire work, we did not encounter a single popular library that had a dedicated mailing list for security announcements (in fact, most libraries we investigated did not have a mailing list for announcements at all). Furthermore, only a few JavaScript library developers provide a dedicated email address where users can submit vulnerability reports…</blockquote>
+    <blockquote>Although jQuery is an immensely popular library, the fact that searching for “security” or “vulnerability” in the official learning centre returns “Apologies, but nothing matched your search criteria” is an excellent summary of the state of JavaScript library security on the Internet, circa August 2016.</blockquote>
+    <p><a href="https://archive.is/lBGJ8">Summary & Analysis</a></p>
+    <p>Further Reading</p>
+    <ul>
+      <li><a href="https://archive.is/On24r">The Frequency of Known Vulnerabilities in JavaScript Libraries</a></li>
+      <li><a href="https://archive.is/wC2py">Vulnerability Database: npm</a></li>
+      <li><a href="https://archive.is/UD08B">A Measurement Study of Insecure JavaScript Practices on the Web</a></li>
+      <li><a href="https://archive.is/CB2Ss">Veracode: Javascript Insecurity</a></li>
+      <li><a href="https://archive.is/26tUf">Richard Stallman: The Javascript Trap</a></li>
+
+</div>
+</section>
+
+
+
+<section id="cloudfare">
+  <div class="border">
+  <h2>
+    <a href="#cloudfare">Cloudfare DNS Insecurity</a>
+  </h2>
+  <p>To be written.</p>
+</div>
+</section>
+
+
+
+<section id="flash">
+  <div class="border">
+  <h2>
+    <a href="#Flash">Plugin Insecurity: Adobe Flash, Microsoft Silverlight</a>
+  </h2>
+  <p>To be written.</p>
+</div>
+</section>
+
+
+
+<section id="tools">
+  <div class="border">
+  <h2>
+    <a href="#tools">Tools</a>
+  </h2>
+<ul>
+  <li><a href="https://tenta.com/test/">Browser Privacy Test</a> — Runs a series of test including IP Leak, WebRTC leak, blacklist, DNS tests and more..</li>
+  <li><a href="https://amiunique.org/fp">Am I Unique</a> — Tests whether the browser is unique by checking the following information: User-agent, Accept, Content Encoding, Content Language, List of Plugins, Platform, Cookies, Do Not Track, Timezone, Screen Resolution, Use of local storage, Use of session storage, Canvas, WebGL, Fonts, Screen resolution, Language, Platform, Use of Adblock.</li>
+  <li><a href="https://panopticlick.eff.org/">Panopticlick</a> — Tests Supercookies, Canvas Fingerprinting, Screen size and color depth, browser plugins, time zone, DNT header, HTTP Accept headers, WebGL fingerprinting, language, system fonts, platform, user agent, touch support and cookies.</li>
+  <li><a href="http://fingerprint.pet-portal.eu/#">Cross Browser Fingerprinting Test</a> — Tests locality, operating system, screen resolution, time zone, User Agent string, HTTP Accept, Plugins, Fonts.</li>
+  <li><a href="https://whoer.net/">Whoer</a> — Comprehensive test suite that tests for IP address, location, ISP, OS, Browser, Anonymity settings such as DNS, Proxy, Tor, Anonymizer or Blacklist, Browser headers, whether JavaScript, Flash, Java, ActiveX or WebRTC are enabled, time zone, language settings, screen information, plugins, navigator information and HTTP headers.</li>
+  <li><a href="https://www.ssllabs.com/ssltest/">SSL Server Test</a> — Performs test scan of the configuration of any public SSL web server.</li>
+  <li><a href="https://badssl.com/">Bad SSL</a> — Tests how the browser handles certain SSL certificates and other SSL-types.</li>
+  <li><a href="https://www.browserleaks.com/javascript">JavaScript Browser Information</a> — Lots of information about the browser's JavaScript capabilities.</li>
+  <li><a href="http://ipleak.net/">IP Leak</a> — Test IP & DNS leak.</li>
+  <li><a href="https://haveibeenpwned.com/">Have I Been Pwned?</a> — Check if an email account has been compromised in a data breach..</li>
+  <li><a href="https://browserleaks.com/canvas">Canvas Fingerprinting</a> — Checks whether Canvas can be used to fingerprint the browser.</li>
+  <li><a href="https://www.browserleaks.com/geo">HTML5 Geolocation Test</a> — Tries to look up your location in the world.</li>
+  <li><a href="https://www.perfect-privacy.com/webrtc-leaktest/">WebRTC Leak Test</a> — Tests whether local or public IP addresses are leaked.</li>
+  <li><a href="http://www.filldisk.com/">Hard Drive Fill Test</a> — Tests whether sites can fill your hard drive with data.</li>
+</ul>
+</div>
+</section>
+
+
+
+<section id="further_reading">
+  <div class="border">
+  <h2>
+    <a href="#further_reading">Further Reading</a>
+  </h2>
+  <h3>Related Articles:</h3>
+  <ul class="list">
+    <li>TOR</li>
+    <li>VPN</li>
+    <li>Hostlists</li>
+    <li>Javascript Considered Harmful</li>
+    <li>Mouse Considered Harmful: Mouseless Browsing</li>
+  </ul>
+  <h3>External References:</h3>
+  <ul class="list">
+    <li><a href="https://ianix.com/pub/browser-privacy-handbook.html">IANIX Browser Privacy Handbook</a></li>
+    <li><a href="https://www.ghacks.net/2015/12/28/the-ultimate-online-privacy-test-resource-list/">Online Privacy Test Resource List</a></li>
+  </ul>
+</div>
+</section>
+
+
+
+<hr>
+<footer>
+<p>Last Updated: 12/18</p>
+</footer>
+<subfooter><a href="">↑ Return ↑</a></subfooter>
+</article>
+</body>
+</html>

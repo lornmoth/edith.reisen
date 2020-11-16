@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AWS</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+<meta name="title" content="">
+<meta name="keyword" content="">
+<meta name="description" content="">
+  <link rel="stylesheet" href="../../screen.css" />
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125826374-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-125826374-2');
+</script>
+</head>
+<body>
+
+  <header>
+  <a href="../../index.html">edith.reisen</a>
+  </header>
+
+<article>
+  <section id="price_toc">
+    <div class="border">
+    <h2>
+      <a href="">AWS</a>
+    </h2>
+
+    <h3>Table of Contents</h3>
+    <ol class="toc">
+      <li><a href="#price_background">Background</a></li>
+      <li><a href="#price_principle">Principles</a></li>
+      <li><a href="#price_traditional">Characteristics of Traditional Diets</li>
+      <li><a href="#price_guidelines">Dietary Guidelines</li>
+      <li><a href="#price_restrictions">Dietary Restrictions</li>
+  </div>
+  </section>
+
+<section id="">
+  <div class="border">
+  <h2>
+    <a href="#toc"></a>
+  </h2>
+
+  <h3>AWS</h3>
+Create Virutal Web Server, 1 year free
+
+Meguca Setup
+<ol>
+  <li>Launch Debian Webserver</li>
+    <ol>
+    <li>Create AWS Account</li>
+    <li>Compute -> EC2</li>
+    <li>Search Debian, get latest</li>
+    <li>Select T2 Micro Free Tier Eligible</li>
+    <li>Default settings are fine, select Launch Instance</li>
+    </ol>
+  <li>Setup Server</li>
+    <ol>
+    <li>Name & Download .pem key. Store somewhere Safe, provides root access to AWS Systems</li>
+    <li>Select View Instances</li>
+    Copy Public DNS
+    Open terminal
+    Move KEY.pem to ~/.ssh
+
+    Make permissions secure:
+      chmod 0400 ~/.ssh/KEY.pem
+    ssh into server as admin, providing key for verification:
+      ssh admin@[public DNS] -i ~/.ssh/KEY.pem
+
+    Create alias shortcut to make logging in faster:
+      vim ~/.bashrc
+    i to enter insert mode
+    alias [alias_name]='ssh admin@[PUBLIC DNS]'
+    :wq to save and quit
+      . ~/.bashrc
+    You can now type [alias_name] in terminal to log in directly
+
+    Give your Computer SSH key access:
+    open ~/.ssh/id_rsa.pub
+    copy text
+
+    run [alias_name]
+      vim ~/.ssh/authorized_keys
+    paste below pem keygen
+    :wq
+
+    Setup Install script:
+    Copy install section of:
+https://github.com/bakape/meguca/blob/master/docs/installation.md
+      vim setup.sh
+    i + ctrl v
+    :wq
+      chmod +x ~/setup.sh
+    Run the launch script
+      sudo .~/setup.sh
+
+    Setup Update section:
+    Copy update section
+      vim update.sh
+    i + ctrl v
+    :wq
+      chmod +x ~/setup.sh
+
+
+
+</div>
+</section>
+
+
+<div class="border">
+  <h2 class="bottom">
+    <a href="../#diet">return</a>
+  </h2>
+<hr>
+<footer>
+<p>Last Updated: </p>
+</footer>
+<subfooter><a href="">↑ Return ↑</a></subfooter>
+</article>
+</body>
+</html>

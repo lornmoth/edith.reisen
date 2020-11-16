@@ -1,0 +1,33 @@
+Wozniak
+
+Lifelong Learning Principles
+
+1. Do not learn if you do not understand
+	Chinese Room
+2. Learn before you memorize
+	Build an overall picture of learned knowledge. Then memorize the pieces that build the full structure.
+3. Build upon basics
+	Don't neglect that which seems obvious. With a properly designed spaced reptition algorithm will heirachize importance for you.
+4. Minimum Information principle
+	Reduce multi-item concepts into single items, so they can be accurately scheduled. The answer should be short as possible.
+5. Cloze deletion is effective and easy
+6. Use Imagery
+	Visual processing power is stronger and faster than verbal processing
+7. Use Mnemonic techniques
+8. Using groupings over sets
+	If a set is necessary, they should be enumerated. Without consistent repitition, the brain cannot form memories
+9. Detect and eliminated interference
+	Item similitary can result in confusion. It should be considered when producing new items and eliminated when noticed. It can be reduced by following minimum information principle
+10. Optimize wording
+	Items should be reduced to only the essential content
+11. Personalize with examples
+12. Rely on emotional states
+13. Contextual tags simplify wording
+	Reduces chance of memory interference
+14. Redundancy is good
+15. Apply reliability labels and track sources
+16. Provide dat stamping
+17. Prioritize sources
+18. active recall principle
+
+https://www.supermemo.com/articles/users/homeschool.htm

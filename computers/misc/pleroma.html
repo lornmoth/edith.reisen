@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pleroma User's Guide</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+  <meta name="title" content="Pleroma User's Guide">
+  <meta name="keyword" content="Pleroma, fediverse, twitter, mastodon, misskey, gnusocial, federated, vs, pleroma vs mastodon, misskey vs mastodon, misskey vs pleroma, instance, profile, P2P, activitypub, ostatus, guide, microblogging, privacy, decentralization, introduction, comparison, join, setup">
+  <meta name="description" content="Pleroma is a federated microblogging server software that can exchange
+  messages with other servers that support the same federation standards,
+  OStatus and ActivityPub. This includes GNU Social, Friendica, Hubzilla and
+  Mastodon.">
+  <link rel="stylesheet" href="../../screen.css" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125826374-2"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-125826374-2'); </script>
+
+</script>
+</head>
+<body>
+<header>
+  <a href="../../index.html">edith.reisen</a>/<a href="../index.html">computers</a>/<a href="../index.html#">misc</a>
+</header>
+
+<div class="border">
+  <h1>
+    <a href="../index.html#">Pleroma User's Guide</a>
+  </h1>
+</div>
+
+<article>
+  <section id="toc">
+    <div class="border">
+    <h2>
+      <a href="#toc">Table of Contents</a>
+    </h2>
+    <ol>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#interface">Interface</a></li>
+      <li><a href="#desktop_clients">Desktop Clients</a></li>
+      <li><a href="#mobile_clients">Mobile Clients</a></li>
+      <li><a href="#instances">Choosing an Instance</a></li>
+      <li><a href="#appendix">Appendix</a></li>
+  </div>
+  </section>
+
+<hr>
+
+<!--
+to do
+Favoriting does?
+Ways to detect blocking
+Dev History
+
+Articles on fediverse
+-->
+
+<section id="background">
+  <div class="border"><h2>
+    <a href="#background">Background</a>
+  </h2>
+  <p><a href="https://git.pleroma.social/pleroma/pleroma">Pleroma</a> is a federated microblogging server software that can exchange
+  messages with other servers that support the same federation standards,
+  OStatus and ActivityPub. This includes GNU Social, Friendica, Hubzilla and
+  Mastodon.</p>
+  <p>The decentralized structure of the network of federated servers
+  (<q>fediverse</q>) provides it with robustness both in server infastructure
+  and moderation. Instances can easily and cheaply be hosted on a server by
+  anyone, letting them and their friends <a href="#instances">join the network</a>, and, while the
+  instances can interact freely with each other, they can each choose their own
+  moderation policy and other configuration settings.</p>
+  <p>Pleroma is notable for its very low resource usage, allowing an instance of hundreds of users to be <a href="https://blog.soykaf.com/post/what-is-pleroma/index.html#lower-system-requirements">easily run on a Raspberry Pi.</a></p>
+
+    <h3>Pleroma Development History</h3>
+    <p>Pleroma originated as an alternative frontend to GNUsocial in 2017 under the work of a <a href="https://blog.soykaf.com/post/pleroma-encyclical-activity-pub/">single developer</a> with the goal of updating the federated microblogging service to modern standards. Pleroma is written in Elixir and its first major public release was in early 2018, however it didn't start receiving serious attention and adoption until mid 2018. The codebase is currently hosted and contributed to by an active team on a <a href="https://git.pleroma.social/pleroma/pleroma">dedicated git instance.</a></p>
+
+<h3>Pleroma vs. Mastodon</h3>
+<p>Mastodon first surged to popularity in 2017, predating Pleroma by about half a year, by acquiring users upset over <a href="http://archive.is/iHdlj">social media centralization and algorithmic control of content</a>, and later, <a href="http://archive.is/kCogE">Tumblr's banning of NSFW.</a>
+
+<p>Pleroma is not a fork of Mastodon, rather, they are both independent extensions of GNUsocial using the OStatus (<a href="https://blog.soykaf.com/post/activity-pub-in-pleroma/">and later, ActivityPub</a>) federation protocols. Plerom</p>
+
+<p>Pleroma has ported the Mastondon frontend, mastofe, as well as developed its own highly similar frontend, pleroma-fe, and so the UX is essentially the same.<p>
+
+    <p>The big difference between Pleroma and Mastodon is it is significantly more lightweight than Mastodon. Mastodon is <a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Resources-needed.md">bloated software</a> relying on a stack of dependencies, whereas Pleroma does not call any dependencies. A Pleroma instance <a href="https://github.com/wimvanderbauwhede/limited-systems/wiki/Pleroma-and-Mastodon-on-the-Raspberry-Pi-3">run on a Raspberry Pi</a> (or <a href="https://git.pleroma.social/pleroma/pleroma">"a $2.50 Vultr instance"</a>), while Mastodon instances <a href="https://discourse.joinmastodon.org/t/q-costs-of-running-a-server/77">regularly spend $10-30/mon</a> to stay online.</p>
+
+  <p>Mastodon forces some settings on its instances. For example, all Mastodon instances have a hard 500 character limit, while Pleroma can be adjusted to any number (default: 5000).</p>
+  <p>Mastodon has a slightly larger featureset than Pleroma, such as server wide instance-blocking.</p>
+  <p>It should be noted instance-blocking is a controversial feature that also largely colors the differences in the two separate communities, as Mastodon communities generally tend towards fully instance-blocking servers that allow any kind of <a href="https://archive.is/tmwyP">"racism... sexism... discrimination... nationalism"</a> whereas Pleroma instances tend towards free speech and hands-off moderation. This has resulted in many Mastodon instances blocking all Pleroma instances as a rule and has <a href="http://archive.is/tXYHx">caused a rift</a> between the <a href="http://archive.is/xwlSC">two communities.</a></p>
+
+<h3>Pleroma vs. Misskey</h3>
+<p><a href="https://github.com/syuilo/misskey">Misskey</a> is the newest software, achieving public popularity (primarily with a Japanese-language audience) in late 2018. It also communicates on the ActivityPub and OStatus protocols, allowing it to integrate seamlessly with the existing Mastodon and Pleroma communities.</p>
+<p>Misskey introduces a slew of technologies new to both Pleroma and Mastodon, including customizable UI, an integrated personal file storage system for each user, variable emoji reactions on posts (as opposed to simple <a href="#favorite">favoriting</a>), polls and calendars.</p>
+
+<p>Again, however, the serious differentiating factor is Pleroma's very optimized codebase that results in minimal resource usage (and by extension, server costs).</p>
+</div>
+</section>
+
+
+<section id="interface">
+  <div class="border"><h2>
+    <a href="#interface">Interface</a>
+  </h2>
+    <p>Pleroma largely retains the Twitter-like interface of GNU Social.</p>
+
+    <p>Each user has his own profile accessed with a username and password which aggregates all his posts and the repeated posts of other users in descending chronological order and displays the user's details:
+      the persistent username which others use to mention them, the instance they belong to, a display name, an avatar, a profile description and a profile banner.
+      There is also a profile background on the standard web front end which acts as a client-side wallpaper.</p>
+      <p><i>Note: all can be changed freely except for the username and instance.
+      Usernames are decided on registering to an instance and cannot be changed afterwards and migrating an account between instances is not possible.</i></p>
+      <p>The user chooses between three timelines to view: Main, Public and Whole Known Network. They are described in detail <a href="#timelines">below</a>.</p>
+
+  <a href="https://blog.soykaf.com/img/pleroma-1.png">
+      <figure>
+      <img src="https://blog.soykaf.com/img/pleroma-1.png" alt="" />
+        <figcaption>
+          Screenshot of the main interface
+        </figcaption>
+      </figure></a>
+
+      <p>There are also two personal, private "timelines" for each user: Notifications and Direct Messages. Notifications shows any personally made post that was <a href="#engagement">engaged with</a>,
+      by another user, detailing the interacting user and what he did. Direct Messages shows any posts that mention the user
+      and have the privacy set to direct message.</p>
+
+      <p>There is also a chat in the sidebar that acts as a simplistic, local irc. Every user on the local instance is a member
+      of this chatroom and messages there are not federated. </p>
+      <h3>Instances</h3>
+        <p>There is a multitude of instances running Pleroma. A user must <a href="#instances">choose one</a> to make their account on. </p>
+        <p>This decision will influence the timelines visible to them. Unlike Twitter, which can be operationally considered a single-instance network, users only see a timeline of users
+          they are in some way connected to, known as the <a href="#timelines">Whole Known Network</a>.
+          There is no "Whole Known & Unknown Network" showing every instance in the network of federated servers, it's entirely possible for an instance to be totally isolated.</p>
+
+        <h3 id="timelines">Timelines</h3>
+        <p>There are three primary timelines shown to every user:
+        <dl class="bold">
+        <dt>The Main Timeline</dt><dd>Contains all posts made or repeated by users whom the user follows.</dd>
+        <dt>The Public Timeline</dt><dd>Contains all posts made on the selected instance or external posts locally repeated or replied to by users of that instance.</dd>
+        <dt>The Whole Known Network</dt><dd>Contains all local and locally repeated & replied posts on the selected instance as well as all posts from
+          external instances that has reached the local instance. In practice, this means that it will contain all posts from the users that local users have followed, as well as
+          all posts any of those users have repeated or replied to.</dd>
+        </dl>
+
+        <h3>Privacy</h3>
+        <p>Four privacy settings are available to choose for every post: direct message, followers-only, unlisted and public.</p>
+        <dl class="bold">
+        <dt>
+        Direct messages</dt>
+        <dd>Only visible to those users mentioned in the post, and they appear in the user's personal, private direct message timeline.</dd>
+        <dt>Followers-only</dt> <dd>Only shown to the poster's followers.</dd>
+        <dt>Unlisted</dt>
+        <dd>Only shown on the user's local instance.
+        <dt>Public</dt>
+        <dd>Shown to the local instance and any external instances the post ends up connected to.</dd>
+      </dl>
+
+      <h3>Following & Blocking</h3>
+      <p>Users can follow or block other users. Following will add them to their Main Timeline, while blocking them
+        makes their posts and account invisible to them. There is not a clear way to tell if you have been blocked
+        except that trying to follow the user who blocked you will stay pending.</p>
+
+      <h3 id="mentioning">Mentioning</h3>
+      <p>Users can mention users from the same instance in a post by typing @ followed by their username, e.g. <code>@username</code></p>
+      <p>Users can mention users from external instances by appending their instance's domain to the username, e.g. <code>@username@instance.domain</code></p>
+      <p>Mentioning a user sends them a notification. Replies to a post tha mentions someone will have the mention retained in the post field by default.</p>
+
+      <h3 id="engagement">Engagement</h3>
+      <p>
+      Users engage with the network by posting new messages ("toots") which will be sent out to their followers and shared on their local instance's public timeline.
+      The default maximum characters is 5000 per message but the server can set it to any value. Images and video can be attached to a post (see: supported filetypes)</p>
+
+      <p>Users can engage with other users'
+      posts by:
+      <dl class="bold">
+      <dt>Replying</dt>
+      <dd>Connects the reply post to a reply thread aggregating all others
+      replies in the same chain in ascending chronological order.</dd>
+
+      <dt id="favorite">Favoriting</dt>
+      <dd>Increases a "favorite" counter on the post and sends a notification to the user.</dd>
+
+      <dt>Repeating ("boosting")</dt>
+      <dd>Share the post to your profile timeline, your local instance and your followers.</dd>
+      </dl>
+
+      <p>All of these actions will send a notification to the original poster,
+        which appears their own personal, private notification timeline.</p>
+
+
+      <h3>Network Relativity</h3>
+      <p>Due to the nature of federation, following and like counts are only tallied for people within your own Known Network. The objective count is only visible to the owner of the post. The result is that the numbers become socially non-meaningful (e.g. as a competitive value), in contrast to Twitter.</p>
+      <h3>Intrainstance Interaction</h3>
+      <p>As discussed <a href="#mentioning">earlier</a>, users can mention users from external instances
+        by appending their instance's domain to the username.</p>
+      <p>A user can remotely follow another user when viewing their profile on an external instance's web FE
+        by clicking Remote Follow and logging in with their username and instance name — e.g. <code>@username@instance.domain</code> — and password, to remotely
+        connect to their local instance's server and send the follow request. The login details never
+        leave the local instance's server.</p>
+        <p>It's also worth noting that Mastodon has a feature for instance blocking, allowing server admins to issue
+          instance-wide bans if they desire. Due to this, you might find yourself unknowingly blocked
+          and invisible to and from whole Mastodon instances if you they choose to block your local instance.
+
+          <p><i>Note: Javascript is currently required to view Pleroma's web front end.</i></p>
+
+</div>
+</section>
+
+
+<section id="desktop_clients">
+  <div class="border"><h2>
+    <a href="#desktop_clients">Desktop Clients</a>
+  </h2>
+  <p>By default, Pleroma uses a web-based front end (that requires Javascript to run). There has not yet been a
+  standalone desktop client built for Pleroma, however, it is cross-compatible with Mastodon front ends (including Mastodon's web FE),
+and Mastodon has a selection of clients.</p>
+<h3>GUI</h3>
+<dl>
+  <dt><a href="https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md#desktop-clients">Desktop clients</a></dt>
+  <dt><a href="https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md#android---open-source">Android clients</a></dt>
+  <dt><a href="https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md#ios---open-source">iOS clients</a></dt>
+</dl>
+
+<h3>CLI</h3>
+<dl>
+  <dt><a href="https://github.com/McKael/madonctl">madonctl</a></dt>
+  <dt><a href="https://github.com/ihabunek/toot">toot</a></dt>
+  <dt><a href="https://github.com/magicalraccoon/tootstream">tootstream</a></dt>
+</dl>
+
+<h3>Gopher</h3>
+<p>The lead Pleroma dev has also introduced support for the <a href="gopher.html">Gopher Protocol</a>. Appropriately
+configured servers can be accessed with a Gopher compatible browser, such as <a href="../security/browsers.html#cli">lynx</a> or <a href="../security/browsers.html#ff">Firefox</a> with the <a href="https://addons.mozilla.org/en-US/firefox/addon/overbitewx/">Overbite extension</a>.</p>
+<p>e.g <code>lynx gopher://pleroma.soykaf.com:9999</code></p>
+<a href="pleroma_gopher.png">
+<figure>
+  <img src="pleroma_gopher.png" alt="" />
+  <figcaption>
+  Pleroma viewed on the Gopher protocol via lynx
+  </figcaption>
+</figure></a>
+
+<p>Unfortunately, it is not possible to login to an instance through Gopher and thus impossible
+  to make posts or engage with them, effectively leaving the Gopher proxy
+  read-only.</p>
+
+</div>
+</section>
+
+
+<section id="mobile_clients">
+  <div class="border"><h2>
+    <a href="#mobile_clients">Mobile Clients</a>
+  </h2>
+  <p>There are too many mobile clients available to list in full here.
+<a href="https://github.com/tuskyapp/Tusky">Tusky</a> is the most commonly recommended Android client and <a href="https://github.com/ReticentJohn/Amaroq">Amaroq</a> is the most commonly recommended iOS client.</p>
+  <p>A complete list of Android clients can be found <a href="https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md#android---open-source">here</a>, and a complete list of iOS
+    clients can be found <a href="https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md#ios---open-source">here</a>.
+</div>
+</section>
+
+
+
+<section id="instances">
+  <div class="border"><h2>
+    <a href="#instances">Choosing an Instance</a>
+  </h2>
+  <p>Because there is no method for migrating an account between instances, the instance you join is a permanent decision.
+    Your local instances forms the base for your Public Timeline and is effectively your starting audience.
+    It's a good idea to scroll through the timelines of various instances to get a sense of their local
+    character and culture in order to find the one that feels the most appropriate fit for you.</p>
+    <p>You should also read the rules and moderation policy for each instance to make sure it
+    is appropriate for you — instances will vary on degree of free speech allowed, SFW imagery, etc.</p>
+  <p>However, it's not abnormal to manage multiple accounts on various instances and most clients
+    will have an interface for easily switching between them.</p>
+
+  <h3>Suggested Instances</h3>
+  <p>Large Instances (400+ users):</p>
+  <ul>
+    <li><a href="https://pleroma.site/main/public">pleroma.site</a></li>
+    <li><a href="https://pl.smuglo.li/main/public">pl.smuglo.li</a></li>
+    <li><a href="https://shitposter.club/main/public">shitposter.club</a></li>
+  </ul>
+  <p>Medium Size Instances (100+ users):</p>
+  <ul>
+    <li><a href="https://cathoderay.tube/main/public">cathoderay.tube</a></li>
+    <li><a href="https://freespeechextremist.com/main/all">freespeechextremist.com</a></li>
+    <li><a href="https://kawen.space/main/public">kawen.space</a></li>
+    <li><a href="https://catgirl.science/main/public">catgirl.science</a></li>
+    <li><a href="https://iscute.moe/main/public">iscute.moe</a></li>
+
+
+  </ul>
+  <p>Small & Active Instances (100- users):</p>
+  <ul>
+    <li><a href="https://letsalllovela.in/main/public">letsalllovela.in</a></li>
+    <li><a href="https://miniwa.moe/main/public">miniwa.moe</a></li>
+    <li><a href="https://shigusegubu.club/main/public">shigusegubu.club</a></li>
+  </ul>
+  <p>Prominent, Closed Instances:</p>
+  <ul>
+    <li><a href="https://pleroma.soykaf.com/main/public">pleroma.soykaf.com</a></li>
+  </ul>
+
+  <p>Full list of instances can be found <a href="https://fediverse.network/pleroma">here.</a></p>
+
+</div>
+</section>
+
+
+
+<hr>
+
+<section id="appendix">
+  <div class="border"><h2>
+    <a href="#appendix">Appendix</a>
+  </h2>
+  <h3>External References</h3>
+  <p>Setting up a Pleroma Instance</p>
+  <ul class="list">
+    <li><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Installing%20on%20Debian%20based%20distributions">Installing on Debian based distributions
+</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Installing%20on%20CentOS%20or%20other%20RPM%20based%20Linux%20distributions">Installing on CentOS or other RPM based Linux distributions
+</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Installing%20on%20CentOS%207">Installing on CentOS 7
+</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Installing%20on%20NetBSD">Installing on NetBSD
+</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/wikis/Installing%20on%20OpenBSD">Installing on OpenBSD
+</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/wikis/installing%20on%20Alpine%20Linux">installing on Alpine Linux</a></li>
+  </ul>
+  <p>List of Instances</p>
+  <ul class="list">
+    <li><a href="https://fediverse.network/pleroma">fediverse.network</a> <a href="https://archive.is/vRkHZ">[a]</a></li>
+    <li><a href="https://distsn.org/pleroma-instances.html">distn.org</a> <a href="https://archive.fo/0vXqZ">[a]</a></li>
+  </ul>
+  <p>Developer Blog</p>
+  <ul class="list">
+    <li><a href="https://blog.soykaf.com/post/what-is-pleroma">What is Pleroma?</a></li>
+    <li><a href="https://blog.soykaf.com/post/activity-pub-in-pleroma/">ActivityPub in Pleroma</a></li>
+    <li><a href="https://blog.soykaf.com/post/gopher-support-in-pleroma">Gopher Support in Pleroma</a></li>
+    <li><a href="https://blog.soykaf.com/post/privacy-and-tracking-on-the-fediverse/"> Privacy and Tracking on the Fediverse </a></li>
+    <li><a href="https://blog.soykaf.com/post/how-federation-works/"> How Federation Works </a></li>
+  </ul>
+  <p>Development Notes</p>
+  <ul class="list">
+    <li><a href="https://git.pleroma.social/pleroma/pleroma">Pleroma Git Repo</a></li>
+    <li><a href="https://github.com/wimvanderbauwhede/limited-systems/wiki/Hacking-the-Pleroma:-Elixir,-Phoenix-and-a-bit-of-ActivityPub">Hacking the Pleroma: Elixir, Phoenix and a bit of ActivityPub</a></li>
+    <li><a href="https://medium.com/we-distribute/blushy-crushy-fediverse-idol-a-chat-with-lain-about-pleroma-4ff578b99752">A Chat with Lain About Pleroma</a></li>
+    <li><a href="https://blog.soykaf.com/post/pleroma-encyclical-activity-pub/">Pleroma Encyclical: ActivityPub</a></li>
+  </ul>
+
+  <p>Coverage</p>
+  <ul class="list">
+    <li><a href="https://archive.is/zyjjY">A whole lot of the Mastodon Android apps, tested</a></li>
+    <li><a href="http://archive.is/xGA9l">Pleroma, a lightweight social server written in Elixir, gains ActivityPub support
+</a></li>
+  </ul><!--
+  <p>On the Fediverse</p>
+  <ul class="list">
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>-->
+  </ul>
+
+</div>
+</section>
+
+
+
+<hr>
+<footer>
+<p>Last Updated: 11/18</p>
+</footer>
+<subfooter><a href="">↑ Return ↑</a></subfooter>
+</article>
+</body>
+</html>
