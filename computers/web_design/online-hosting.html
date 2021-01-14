@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search Engine Optimization: Best Practices</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+<meta name="title" content="Search Engine Optimization: Best Practices with Standards-Compliant HTML">
+<meta name="keyword" content="search engine optimization, seo, html, standards-compliant, best practice, comprehensive, header, meta tags, description, keywords, sitemap, canonical url, structured data, google search console, image attributes, alt, attributes, html5, primer">
+<meta name="description" content="Search engine optimization is the practice of adjusting your site’s code to make it readable and prominent to search engine algorithms, increasing its likelihood to appear
+This article is a comprehensive list of the HTML content parsed by search engine algorithms with best practices for readability and visibility. Excepting sitemaps and canonical urls covered in the Appendix (special use cases), this is the whole of SEO.">
+  <link rel="stylesheet" href="" />
+
+<style>
+  html {
+  font-size: 1.1em;
+  line-height: inherit;
+  margin-bottom: 2em;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  margin: 2em;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: black;
+  max-width: 38em;
+  overflow-wrap: break-word;
+}
+a {color:orange;}
+img {
+  max-width: 25em;
+}
+p {margin:1em;}
+code { color:lightblue; }
+h1 {color:lightblue;}
+h2 {color:orange;}
+ h3 {color:lightgreen;}
+</style>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125826374-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-125826374-2');
+</script>
+
+</head>
+<body>
+<header>
+  <a href="../../index.html">edith.reisen</a>/<a href="../index.html">computers</a>/<a href="../index.html#web_design">web_design</a>
+</header>
+
+<h1 id="online-hosting">Online Hosting</h1>
+<p>Github code hosted via Github pages. 3rd party domain provider</p>
+<p>TOC</p>
+<ol>
+<li>Github Setup</li>
+<li>Live Domain</li>
+<li>Basic HTML/CSS</li>
+</ol>
+<h2 id="github-setup">Github Setup</h2>
+<h3 id="setup-github-account">Setup Github Account</h3>
+<ul>
+<li>Create account - Github.com</li>
+<li>Download Github desktop - desktop.github.com</li>
+</ul>
+<p>Note, hide email in Privacy Settings:</p>
+<ul>
+<li>Your profile &gt; Settings &gt; Emails: Check &quot;Keep my email addresses private&quot; &amp; &quot;Block command line pushes that expose my email&quot;</li>
+</ul>
+<h3 id="create-a-repository">Create a Repository</h3>
+<p>The repository is your database of website code. If you have multiple websites, or subdomains on a site, each one would have its own repository.</p>
+<p>Steps:</p>
+<ol>
+<li><p>In the upper-right corner of any page, use the drop-down menu, and select <strong>New repository</strong>.</p>
+<p><img src="https://docs.github.com/assets/images/help/repository/repo-create.png" alt="Drop-down with option to create a new repository"></p>
+</li>
+<li><p>Type the name for your site, used for your own reference. For example, &quot;remilia&quot; or &quot;remilia.org&quot;.</p>
+<p><img src="https://docs.github.com/assets/images/help/repository/create-repository-name.png" alt="Field for entering a repository name"></p>
+</li>
+<li><p>Optionally, add a description of your repository. For example, &quot;Main remilia webpage&quot;</p>
+<p><img src="https://docs.github.com/assets/images/help/repository/create-repository-desc.png" alt="Field for entering a repository description"></p>
+</li>
+<li><p>Click <strong>Create repository</strong>.</p>
+<p> <img src="https://docs.github.com/assets/images/help/repository/create-repository-button.png" alt="Button to create repository"></p>
+</li>
+</ol>
+<h3 id="put-repo-online">Put Repo Online</h3>
+<p>Github will be used to host your website. Any static site will be hosted by them at no charge.</p>
+<p>Steps:</p>
+<ol>
+<li>Navigate to your repository&#39;s page</li>
+<li>Goto the settings section</li>
+</ol>
+<p><img src="https://guides.github.com/features/pages/repo-settings.png" alt="settings-tab"></p>
+<ol>
+<li><p>Scroll down to the <strong>Github Pages</strong> section near the bottom. </p>
+</li>
+<li><p>In the source section, select the dropdown and change it from None to Main and click save</p>
+</li>
+</ol>
+
+<p>Your page will now appear online at <em>yourusername</em>.github.io/<em>reponame</em></p>
+<h3 id="create-webpage">Create Webpage</h3>
+<p>You can create HTML/CSS pages directly in Github using its simply web text editor. It&#39;s ultimately easier to use a dedicated text-editor and upload them via Github Desktop (or Github on the command line), but we can create the first file in Github to confirm everything works.</p>
+<p>Steps:</p>
+<ol>
+<li>If not in the code section of the repo, navigate to it by selecting Code in the header</li>
+<li>In the top right, click the button for Add file, then Create new file</li>
+<li>Name the file index.html</li>
+<li>Place anything in the body</li>
+<li>Under commit, you need to write a message for record purposes. Just place a &quot;.&quot; if it&#39;s unimportant to you.</li>
+<li>Make sure Commit directly to the master branch is selected and hit Commit new file</li>
+</ol>
+<p>You will then see the file in the main repo. If you click into it, you can edit the text at any time by clicking the edit button at the top right. </p>
+<p>All history of edits for the file will also be maintained on Github&#39;s records, making it easy to go back and fix something if an update breaks it.</p>
+<p>You should now see the page you created live when you navigate to <em>yourusername</em>.github.io/<em>reponame</em></p>
+
+
+<h1 id="introductory-html-css">Introductory HTML CSS</h1>
+<p>Basic introduction to start writing webpages immediately. At the bottom of the page are more detailed guides to learn the fundamentals. HTML/CSS is very easy to pick up following them.</p>
+<h2 id="html">HTML</h2>
+<h3 id="basics">Basics</h3>
+<p>Tags go within <code>&lt;tag&gt;</code> and are escaped as <code>&lt;/tag&gt;</code>.</p>
+<p>Text tags:</p>
+<ul>
+<li><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, etc: Various level of header/title</li>
+<li><code>&lt;p&gt;</code>: main parapaghs</li>
+<li><code>&lt;br&gt;</code>: break to new line</li>
+</ul>
+<p>Formatting:</p>
+<ul>
+<li><code>&lt;strong&gt;</code>: bold</li>
+<li><code>&lt;em&gt;</code>: italics
+-<code>&lt;quote&gt;</code>: quotes</li>
+</ul>
+<p>Lists:</p>
+<ul>
+<li><code>&lt;ul&gt;</code>: unordered list, eg bullet points</li>
+<li><code>&lt;ol&gt;</code>: ordered list, eg numbers</li>
+<li><p><code>&lt;li&gt;</code>: list items
+  e.g. </p>
+<pre><code class="lang-&lt;ul&gt;">      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+</li>
+</ul>
+<p>Page tags:</p>
+<ul>
+<li><code>&lt;body&gt;</code>: main body</li>
+<li><code>&lt;nav&gt;</code>: navigation/links section</li>
+<li><code>&lt;section&gt;</code>: sections within the body</li>
+<li><code>&lt;div&gt;</code>: generic dividing container for css settings</li>
+<li><code>&lt;hr&gt;</code>: horizontal dividing line</li>
+</ul>
+<p>Links look like this: <code>&lt;a href=&quot;https://url.com&quot;&gt;Click here&lt;/a&gt;</code>
+Images look like this: <code>&lt;img src=&quot;img.jpg&quot;&gt;</code></p>
+<p>A basic page would like:</p>
+<pre><code class="lang-&lt;body&gt;">    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"introduction"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Welcome to my Page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Welcome to my <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>page<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Links<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Link 1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Link 2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<h4 id="additional-items">Additional Items</h4>
+<p>Full template:</p>
+<p>```&lt;!doctype html&gt;</p>
+<p><html></p>
+<head>
+<link rel="stylesheet" href="{css}">
+<title>{Title}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+<meta name="title" content="{title}">
+<meta name="keyword" content="{keywords}">
+<meta name="description" content="{description}">
+    <link rel="icon" type="image/ico" href="favicon.ico" sizes="16x16","32x32","48x48">
+    </head>
+<code>##### SEO template:
+
+Add this to the top of each html page so if you want it to be recognized by search engines:</code>
+&lt;!doctype html&gt;
+<html>
+<head>
+<title>{Title}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+<meta name="title" content="{title}">
+<meta name="keyword" content="{keywords}">
+<meta name="description" content="{description}">
+    </head>
+
+<pre><code>
+##### Favicon
+
+Site image that shows up <span class="hljs-keyword">in</span> the tab
+    Add this to the top, inbetween ``&lt;head&gt;&lt;/head&gt;``:
+
+Create a favicon here:
+https:<span class="hljs-comment">//favicon.io/</span>
+
+And have it uploaded <span class="hljs-keyword">in</span> your main folder <span class="hljs-keyword">as</span> favicon.ico    
+
+## CSS:
+
+HTML just holds the raw content <span class="hljs-keyword">of</span> the website. CSS holds all the styling/visual <span class="hljs-keyword">code</span>. 
+
+Create a file called screen.css and add this text to the HTML page, inbetween ``&lt;head&gt;&lt;/head&gt;``:
+
+``&lt;link rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"{css}"</span>&gt;``
+
+<span class="hljs-keyword">where</span> {css} is the location <span class="hljs-keyword">of</span> the css file, e.g. <span class="hljs-string">"screen.css"</span>
+
+css is written <span class="hljs-keyword">as</span>
+</code></pre><p>tag {
+        category: setting;
+    }</p>
+<pre><code>
+
+<span class="ebnf"><span class="hljs-attribute">eg</span></span>
+</code></pre><pre><code><span class="hljs-selector-tag">body</span> {
+    <span class="hljs-attribute">color</span>: white;
+    <span class="hljs-attribute">background-color</span>: black;
+}
+</code></pre>
+This will turn <span class="hljs-keyword">the</span> main <span class="hljs-built_in">text</span> <span class="hljs-keyword">in</span> all <span class="hljs-keyword">the</span> body white, <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> background black; inverting default black <span class="hljs-keyword">on</span> white.
+
+It works <span class="hljs-keyword">the</span> same <span class="hljs-keyword">for</span> all html tags - eg 
+    ``a { color: red;} em { color: gray;}``
+Makes links red, <span class="hljs-keyword">and</span> italicized <span class="hljs-built_in">text</span> grayed.
+
+Settings <span class="hljs-keyword">get</span> overriden <span class="hljs-keyword">if</span> something <span class="hljs-keyword">is</span> nested, e.g. <span class="hljs-keyword">if</span> you have a section within <span class="hljs-keyword">the</span> body <span class="hljs-keyword">then</span> you can make <span class="hljs-keyword">the</span> <span class="hljs-built_in">text</span> a different color again, only <span class="hljs-keyword">for</span> <span class="hljs-keyword">that</span> section.
+
+Recommended template:
+<code><pre><p>html {
+  font-size: 1em;
+  line-height: inherit;
+  margin-bottom: 2em;
+}</p>
+<p>body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  margin: 2em;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: black;
+  max-width: 38em;
+  overflow-wrap: break-word;
+}
+</pre></code></p>
+<h3 id="further-reading">Further Reading</h3>
+<p>MDN Guides:
+These are solid introductions to learn the fundamentals. You can follow them through step by step:</p>
+<ol>
+<li>HTML5: <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML">https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML</a></li>
+<li>CSS3: <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS">https://developer.mozilla.org/en-US/docs/Learn/CSS</a></li>
+<li>JavaScript: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a></li>
+</ol>
+<p>Further Reading:</p>
+<ol>
+<li>Jeremy Keith &amp; Rachel Andrew, HTML5 for Web Designers</li>
+<li>Jonathan Snook, Scalable and Modular Architecture for CSS</li>
+<li>Marijn Haverbeke, Eloquent JavaScript</li>
+</ol>
+<p>Theory:</p>
+<ol>
+<li>Lo-fi Manifesto, Karl Stolley: <a href="http://kairos.technorhetoric.net/20.2/inventio/stolley/">http://kairos.technorhetoric.net/20.2/inventio/stolley/</a></li>
+<li>Responsive Web Design, Ethan Marcotte: <a href="https://alistapart.com/article/responsive-web-design/">https://alistapart.com/article/responsive-web-design/</a></li>
+<li>Jason Santa Maria, On Web Typography</li>
+</ol>
